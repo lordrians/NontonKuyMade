@@ -8,7 +8,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiService {
-
+//coba
     @GET("${BuildConfig.BASE_URL}movie/popular?api_key=${BuildConfig.API_KEY}&language=en-US&page=1")
     fun getAllMovie(): Call<ResponseListMovie>
 
