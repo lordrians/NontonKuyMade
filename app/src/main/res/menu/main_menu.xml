@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/botnav_home"
+        android:icon="@drawable/ic_home_fill"
+        android:enabled="true"
+        android:title="@string/title_botnav_home"/>
+
+    <item
+        android:id="@+id/botnav_favorite"
+        android:icon="@drawable/ic_favorite_fill"
+        android:enabled="true"
+        android:title="@string/title_favorite"/>
+
+
+</menu>

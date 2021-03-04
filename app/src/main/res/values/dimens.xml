@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="iv_itemgrid_height">220dp</dimen>
+    <dimen name="margin_container">16dp</dimen>
+    <dimen name="tv_rate">12sp</dimen>
+    <dimen name="iv_movie_detail_height">170dp</dimen>
+    <dimen name="iv_movdetail_poster_width">120dp</dimen>
+    <dimen name="iv_movdetail_poster_height">160dp</dimen>
+    <dimen name="tv_movdetail_title">16sp</dimen>
+    <dimen name="tv_movdetail_genre">12sp</dimen>
+    <dimen name="description_content">14sp</dimen>
+    <dimen name="item_horizontal_width">150dp</dimen>
+</resources>
