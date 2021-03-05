@@ -51,15 +51,10 @@ class FavoriteFragment : Fragment(), MovieAdapter.OnItemClickCallback {
         binding.rvFavMovie.adapter = movieAdapter
         binding.rvFavMovie.setHasFixedSize(true)
 
-        viewModel.favoriteMovie.observe(this, Observer { favorites ->
-            when (favorites) {
-                is Resource.Loading -> showProgressBar(true)
-                is Resource.Success -> {
-                    showProgressBar(false)
-                    movieAdapter.setData(favorites.data)
-                    movieAdapter.setOnItemClickCallback(this)
-                }
-            }
+        viewModel.favoriteMovie.observe(viewLifecycleOwner, Observer { favorites ->
+            showProgressBar(false)
+            movieAdapter.setData(favorites)
+            movieAdapter.setOnItemClickCallback(this)
         })
     }
 

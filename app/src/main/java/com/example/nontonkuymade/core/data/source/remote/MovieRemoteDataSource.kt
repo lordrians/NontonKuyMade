@@ -7,9 +7,15 @@ import com.example.nontonkuymade.core.data.source.remote.network.ApiService
 import com.example.nontonkuymade.core.data.source.remote.response.ResponseDetailMovie
 import com.example.nontonkuymade.core.data.source.remote.response.ResponseListMovie
 import com.example.nontonkuymade.core.data.source.remote.response.ResultsItemListMovie
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import okhttp3.Dispatcher
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 
 class MovieRemoteDataSource private constructor(
     private val apiService: ApiService
@@ -24,41 +30,52 @@ class MovieRemoteDataSource private constructor(
             }
     }
 
-    fun getAllMovie(): LiveData<ApiResponse<List<ResultsItemListMovie>>> {
-        val resultData = MutableLiveData<ApiResponse<List<ResultsItemListMovie>>>()
-        val client = apiService.getAllMovie()
-
-        client.enqueue(object : Callback<ResponseListMovie>{
-            override fun onFailure(call: Call<ResponseListMovie>, t: Throwable) {
-                resultData.value = ApiResponse.Error(t.message.toString())
+    suspend fun getAllMovie(): Flow<ApiResponse<List<ResultsItemListMovie>>> {
+        return flow {
+            try {
+                val response = apiService.getAllMovie()
+                val dataMovies = response.results
+                if (dataMovies != null) {
+                    if (dataMovies.isNotEmpty())
+                        emit(ApiResponse.Success(dataMovies))
+                    else
+                        emit(ApiResponse.Empty)
+                }
+            } catch (e: Exception){
+                emit(ApiResponse.Error(e.toString()))
             }
-
-            override fun onResponse(
-                call: Call<ResponseListMovie>,
-                response: Response<ResponseListMovie>
-            ) {
-                resultData.value = ApiResponse.Success(response.body()?.results as List<ResultsItemListMovie>)
-            }
-        })
-        return resultData
+        }.flowOn(Dispatchers.IO)
     }
 
-    fun getDetailMovie(idMovie: String): LiveData<ApiResponse<ResponseDetailMovie>>{
-        val resultData = MutableLiveData<ApiResponse<ResponseDetailMovie>>()
-        val client = apiService.getDetailMovie(idMovie)
+    suspend fun getDetailMovie(idMovie: String): Flow<ApiResponse<ResponseDetailMovie>>{
 
-        client.enqueue(object : Callback<ResponseDetailMovie>{
-            override fun onFailure(call: Call<ResponseDetailMovie>, t: Throwable) {
-                resultData.value = ApiResponse.Error(t.message.toString())
+        return flow {
+            try {
+                val response = apiService.getDetailMovie(idMovie)
+                val detailMovie = response
+                if (detailMovie != null)
+                    emit(ApiResponse.Success(detailMovie))
+                else
+                    emit(ApiResponse.Empty)
+            } catch (e: Exception){
+                emit(ApiResponse.Error(e.toString()))
             }
-
-            override fun onResponse(
-                call: Call<ResponseDetailMovie>,
-                response: Response<ResponseDetailMovie>
-            ) {
-                resultData.value = ApiResponse.Success(response.body() as ResponseDetailMovie)
-            }
-        })
-        return resultData
+        }.flowOn(Dispatchers.IO)
+//        val resultData = MutableLiveData<ApiResponse<ResponseDetailMovie>>()
+//        val client = apiService.getDetailMovie(idMovie)
+//
+//        client.enqueue(object : Callback<ResponseDetailMovie>{
+//            override fun onFailure(call: Call<ResponseDetailMovie>, t: Throwable) {
+//                resultData.value = ApiResponse.Error(t.message.toString())
+//            }
+//
+//            override fun onResponse(
+//                call: Call<ResponseDetailMovie>,
+//                response: Response<ResponseDetailMovie>
+//            ) {
+//                resultData.value = ApiResponse.Success(response.body() as ResponseDetailMovie)
+//            }
+//        })
+//        return resultData
     }
 }

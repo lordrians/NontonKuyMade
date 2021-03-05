@@ -51,7 +51,7 @@ class HomeFragment : Fragment() , MovieAdapter.OnItemClickCallback{
         binding.rvMovie.adapter = adapter
         binding.rvMovie.setHasFixedSize(true)
 
-        viewModelMovie.movie.observe(this, Observer { movies ->
+        viewModelMovie.movie.observe(viewLifecycleOwner, Observer { movies ->
             when (movies){
                 is Resource.Loading -> showProgressBar(true)
                 is Resource.Success -> {

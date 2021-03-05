@@ -9,11 +9,11 @@ class MovieInteractor (
     private val movieRepository: IMovieRepository
 ) : MovieUseCase{
 
-    override fun getAllMovie(): LiveData<Resource<List<MovieEntity>>> = movieRepository.getAllMovie()
+    override fun getAllMovie() = movieRepository.getAllMovie()
 
-    override fun getDetailMovie(idMovie: String): LiveData<Resource<MovieEntity>> = movieRepository.getDetailMovie(idMovie)
+    override fun getDetailMovie(idMovie: String) = movieRepository.getDetailMovie(idMovie)
 
     override fun setFavMovie(movie: MovieEntity, state: Boolean) = movieRepository.setFavMovie(movie,state)
 
-    override fun getFavMovie(): LiveData<Resource<List<MovieEntity>>> = movieRepository.getFavMovie()
+    override fun getFavMovie() = movieRepository.getFavMovie()
 }
