@@ -36,10 +36,4 @@ class MovieLocalDataSource private constructor(
         movieDao.updateMovie(movie)
     }
 
-//    suspend fun updateMovie(movie: MovieEntity, newState: Boolean): Unit =
-//            withContext(Dispatchers.IO){
-//                movie.isFav = newState
-//                movieDao.updateMovie(movie)
-//            }
-
 }
