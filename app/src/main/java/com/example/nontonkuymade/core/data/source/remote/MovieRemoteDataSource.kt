@@ -61,21 +61,5 @@ class MovieRemoteDataSource private constructor(
                 emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
-//        val resultData = MutableLiveData<ApiResponse<ResponseDetailMovie>>()
-//        val client = apiService.getDetailMovie(idMovie)
-//
-//        client.enqueue(object : Callback<ResponseDetailMovie>{
-//            override fun onFailure(call: Call<ResponseDetailMovie>, t: Throwable) {
-//                resultData.value = ApiResponse.Error(t.message.toString())
-//            }
-//
-//            override fun onResponse(
-//                call: Call<ResponseDetailMovie>,
-//                response: Response<ResponseDetailMovie>
-//            ) {
-//                resultData.value = ApiResponse.Success(response.body() as ResponseDetailMovie)
-//            }
-//        })
-//        return resultData
     }
 }

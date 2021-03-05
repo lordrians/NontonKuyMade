@@ -31,15 +31,15 @@ class MovieLocalDataSource private constructor(
         movie.isFav = newState
         movieDao.updateMovie(movie)
     }
-//    fun updateMovie(movie: MovieEntity, newState: Boolean){
-//        movie.isFav = newState
-//        movieDao.updateMovie(movie)
-//    }
+    fun updateMovie(movie: MovieEntity, newState: Boolean){
+        movie.isFav = newState
+        movieDao.updateMovie(movie)
+    }
 
-    suspend fun updateMovie(movie: MovieEntity, newState: Boolean): Unit =
-            withContext(Dispatchers.IO){
-                movie.isFav = newState
-                movieDao.updateMovie(movie)
-            }
+//    suspend fun updateMovie(movie: MovieEntity, newState: Boolean): Unit =
+//            withContext(Dispatchers.IO){
+//                movie.isFav = newState
+//                movieDao.updateMovie(movie)
+//            }
 
 }
