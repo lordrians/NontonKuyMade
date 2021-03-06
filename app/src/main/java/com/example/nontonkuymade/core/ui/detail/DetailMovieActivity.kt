@@ -10,22 +10,19 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.nontonkuymade.BuildConfig
-import com.example.nontonkuymade.MyApplication
 import com.example.nontonkuymade.R
 import com.example.nontonkuymade.core.data.Resource
 import com.example.nontonkuymade.core.data.source.local.entity.MovieEntity
-import com.example.nontonkuymade.core.ui.MovieViewModelFactory
 import com.example.nontonkuymade.databinding.ActivityDetailMovieBinding
-import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailMovieActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var factory: MovieViewModelFactory
+//    @Inject
+//    lateinit var factory: MovieViewModelFactory
 
-    private val viewModel: DetailMovieViewModel by viewModels {
-        factory
-    }
+    private val viewModel: DetailMovieViewModel by viewModels()
 
     private lateinit var binding: ActivityDetailMovieBinding
     private var idMovie: Int? = null
@@ -35,7 +32,6 @@ class DetailMovieActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        (application as MyApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         binding = ActivityDetailMovieBinding.inflate(layoutInflater)
         setContentView(binding.root)

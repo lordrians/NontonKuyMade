@@ -1,5 +1,6 @@
 package com.example.nontonkuymade.core.ui.detail
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -8,7 +9,7 @@ import com.example.nontonkuymade.core.data.source.local.entity.MovieEntity
 import com.example.nontonkuymade.core.domain.usecase.MovieUseCase
 import javax.inject.Inject
 
-class DetailMovieViewModel @Inject constructor(
+class DetailMovieViewModel @ViewModelInject constructor(
     private val movieUseCase: MovieUseCase
 ): ViewModel(){
     private lateinit var detailMovie: LiveData<Resource<MovieEntity>>

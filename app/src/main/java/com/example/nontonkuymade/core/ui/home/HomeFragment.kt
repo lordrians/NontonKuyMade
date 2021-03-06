@@ -1,6 +1,5 @@
 package com.example.nontonkuymade.core.ui.home
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,27 +12,24 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.nontonkuymade.MyApplication
 import com.example.nontonkuymade.R
 import com.example.nontonkuymade.core.data.Resource
 import com.example.nontonkuymade.core.data.source.local.entity.MovieEntity
 import com.example.nontonkuymade.core.ui.MovieAdapter
-import com.example.nontonkuymade.core.ui.MovieViewModelFactory
 import com.example.nontonkuymade.core.ui.detail.DetailMovieActivity
 import com.example.nontonkuymade.core.ui.detail.DetailMovieActivity.Companion.ID_MOVIE
 import com.example.nontonkuymade.core.utils.setGridPixel
 import com.example.nontonkuymade.core.utils.setVisible
 import com.example.nontonkuymade.databinding.FragmentHomeBinding
-import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() , MovieAdapter.OnItemClickCallback{
 
-    @Inject
-    lateinit var factory: MovieViewModelFactory
+//    @Inject
+//    lateinit var factory: MovieViewModelFactory
 
-    private val viewModelMovie: HomeViewModel by viewModels {
-        factory
-    }
+    private val viewModelMovie: HomeViewModel by viewModels()
 
     private lateinit var binding: FragmentHomeBinding
 
@@ -49,11 +45,6 @@ class HomeFragment : Fragment() , MovieAdapter.OnItemClickCallback{
 
         loadData()
 
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        (requireActivity().application as MyApplication).appComponent.inject(this)
     }
 
     private fun loadData() {
