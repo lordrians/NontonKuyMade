@@ -2,8 +2,8 @@ package com.example.nontonkuymade
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.nontonkuymade.core.ui.VpMainAdapter
 import com.example.nontonkuymade.databinding.ActivityMainBinding
+import com.example.nontonkuymade.ui.VpMainAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

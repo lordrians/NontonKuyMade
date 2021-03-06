@@ -12,14 +12,14 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.core.data.Resource
+import com.example.core.data.source.local.entity.MovieEntity
+import com.example.core.ui.MovieAdapter
+import com.example.core.utils.setGridPixel
+import com.example.core.utils.setVisible
 import com.example.nontonkuymade.R
-import com.example.nontonkuymade.core.data.Resource
-import com.example.nontonkuymade.core.data.source.local.entity.MovieEntity
-import com.example.nontonkuymade.core.ui.MovieAdapter
 import com.example.nontonkuymade.ui.detail.DetailMovieActivity
 import com.example.nontonkuymade.ui.detail.DetailMovieActivity.Companion.ID_MOVIE
-import com.example.nontonkuymade.core.utils.setGridPixel
-import com.example.nontonkuymade.core.utils.setVisible
 import com.example.nontonkuymade.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 

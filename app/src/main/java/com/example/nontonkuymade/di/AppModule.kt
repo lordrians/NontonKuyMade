@@ -1,7 +1,7 @@
 package com.example.nontonkuymade.di
 
-import com.example.nontonkuymade.core.domain.usecase.MovieInteractor
-import com.example.nontonkuymade.core.domain.usecase.MovieUseCase
+import com.example.core.domain.usecase.MovieInteractor
+import com.example.core.domain.usecase.MovieUseCase
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

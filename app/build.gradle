@@ -18,10 +18,6 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        buildConfigField("String", "BASE_URL", '"https://api.themoviedb.org/3/"')
-        buildConfigField("String","API_KEY",'"41a6cc0ce6c185df02b0e2442b8cf782"')
-        buildConfigField("String","PATH_IMG",'"https://image.tmdb.org/t/p/w500"')
-        buildConfigField("String","PATH_ORIGINAL_IMG",'"https://image.tmdb.org/t/p/original"')
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -41,22 +37,13 @@ android {
     viewBinding {
         enabled = true
     }
+    dynamicFeatures = [':favorite']
 }
 
 dependencies {
 
     implementation project(":core")
 
-    //Glide
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    //Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
-    //Room
-    implementation "androidx.room:room-runtime:2.2.6"
-    kapt "androidx.room:room-compiler:2.2.6"
-    androidTestImplementation "androidx.room:room-testing:2.2.6"
 
     //Dagger
 //    implementation "com.google.dagger:dagger:$dagger_version"
