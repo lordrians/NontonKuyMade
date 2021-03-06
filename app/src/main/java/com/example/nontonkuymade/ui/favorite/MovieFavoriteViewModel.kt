@@ -1,4 +1,4 @@
-package com.example.nontonkuymade.core.ui.favorite
+package com.example.nontonkuymade.ui.favorite
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel

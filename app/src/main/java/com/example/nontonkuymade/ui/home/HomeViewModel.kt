@@ -1,4 +1,4 @@
-package com.example.nontonkuymade.core.ui.home
+package com.example.nontonkuymade.ui.home
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package com.example.nontonkuymade.core.ui.home
+package com.example.nontonkuymade.ui.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -16,8 +16,8 @@ import com.example.nontonkuymade.R
 import com.example.nontonkuymade.core.data.Resource
 import com.example.nontonkuymade.core.data.source.local.entity.MovieEntity
 import com.example.nontonkuymade.core.ui.MovieAdapter
-import com.example.nontonkuymade.core.ui.detail.DetailMovieActivity
-import com.example.nontonkuymade.core.ui.detail.DetailMovieActivity.Companion.ID_MOVIE
+import com.example.nontonkuymade.ui.detail.DetailMovieActivity
+import com.example.nontonkuymade.ui.detail.DetailMovieActivity.Companion.ID_MOVIE
 import com.example.nontonkuymade.core.utils.setGridPixel
 import com.example.nontonkuymade.core.utils.setVisible
 import com.example.nontonkuymade.databinding.FragmentHomeBinding

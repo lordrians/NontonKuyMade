@@ -1,4 +1,4 @@
-package com.example.nontonkuymade.core.ui.detail
+package com.example.nontonkuymade.ui.detail
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity

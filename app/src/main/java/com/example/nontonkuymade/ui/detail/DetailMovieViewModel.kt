@@ -1,4 +1,4 @@
-package com.example.nontonkuymade.core.ui.detail
+package com.example.nontonkuymade.ui.detail
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData

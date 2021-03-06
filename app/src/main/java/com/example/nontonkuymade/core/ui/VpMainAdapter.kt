@@ -3,8 +3,8 @@ package com.example.nontonkuymade.core.ui
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.nontonkuymade.core.ui.favorite.FavoriteFragment
-import com.example.nontonkuymade.core.ui.home.HomeFragment
+import com.example.nontonkuymade.ui.favorite.FavoriteFragment
+import com.example.nontonkuymade.ui.home.HomeFragment
 
 class VpMainAdapter(
     private val fm: FragmentActivity

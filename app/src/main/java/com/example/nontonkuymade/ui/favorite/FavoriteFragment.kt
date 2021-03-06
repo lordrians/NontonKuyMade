@@ -1,4 +1,4 @@
-package com.example.nontonkuymade.core.ui.favorite
+package com.example.nontonkuymade.ui.favorite
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,8 +13,8 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.nontonkuymade.core.data.source.local.entity.MovieEntity
 import com.example.nontonkuymade.core.ui.MovieAdapter
-import com.example.nontonkuymade.core.ui.detail.DetailMovieActivity
-import com.example.nontonkuymade.core.ui.detail.DetailMovieActivity.Companion.ID_MOVIE
+import com.example.nontonkuymade.ui.detail.DetailMovieActivity
+import com.example.nontonkuymade.ui.detail.DetailMovieActivity.Companion.ID_MOVIE
 import com.example.nontonkuymade.core.utils.setGridPixel
 import com.example.nontonkuymade.databinding.FragmentFavoriteBinding
 import dagger.hilt.android.AndroidEntryPoint
