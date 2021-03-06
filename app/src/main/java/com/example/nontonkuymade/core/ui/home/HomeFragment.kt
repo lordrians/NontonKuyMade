@@ -12,7 +12,6 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.nontonkuymade.MyApplication
 import com.example.nontonkuymade.R
@@ -37,7 +36,6 @@ class HomeFragment : Fragment() , MovieAdapter.OnItemClickCallback{
     }
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var movieAdapter: MovieAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -60,9 +58,6 @@ class HomeFragment : Fragment() , MovieAdapter.OnItemClickCallback{
 
     private fun loadData() {
         val adapter = MovieAdapter()
-//        val factory = MovieViewModelFactory.getInstance(requireContext())
-//        val viewModelMovie = ViewModelProvider(this, factory)[HomeViewModel::class.java]
-
         binding.rvMovie.layoutManager = context?.let { setGridPixel(it) }?.let { GridLayoutManager(context,it) }
         binding.rvMovie.adapter = adapter
         binding.rvMovie.setHasFixedSize(true)

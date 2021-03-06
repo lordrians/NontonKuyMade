@@ -3,19 +3,16 @@ package com.example.nontonkuymade.core.ui.favorite
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.nontonkuymade.MyApplication
-import com.example.nontonkuymade.R
-import com.example.nontonkuymade.core.data.Resource
 import com.example.nontonkuymade.core.data.source.local.entity.MovieEntity
 import com.example.nontonkuymade.core.ui.MovieAdapter
 import com.example.nontonkuymade.core.ui.MovieViewModelFactory
@@ -60,9 +57,6 @@ class FavoriteFragment : Fragment(), MovieAdapter.OnItemClickCallback {
 
     private fun loadData() {
         movieAdapter = MovieAdapter()
-//        val factory = MovieViewModelFactory.getInstance(requireContext())
-//        val viewModel = ViewModelProvider(this, factory)[MovieFavoriteViewModel::class.java]
-
         binding.rvFavMovie.layoutManager = context?.let { setGridPixel(it) }?.let {GridLayoutManager(context,it)}
         binding.rvFavMovie.adapter = movieAdapter
         binding.rvFavMovie.setHasFixedSize(true)

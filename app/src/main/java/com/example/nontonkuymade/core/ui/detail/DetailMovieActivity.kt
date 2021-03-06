@@ -6,10 +6,8 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
-import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.nontonkuymade.BuildConfig
 import com.example.nontonkuymade.MyApplication
@@ -53,8 +51,6 @@ class DetailMovieActivity : AppCompatActivity() {
     }
 
     private fun loadDetail() {
-//        val factory = MovieViewModelFactory.getInstance(this)
-//        viewModel = ViewModelProvider(this, factory)[DetailMovieViewModel::class.java]
 
         viewModel.getDetailMovie(idMovie.toString()).observe(this, Observer { detail ->
             when (detail) {
