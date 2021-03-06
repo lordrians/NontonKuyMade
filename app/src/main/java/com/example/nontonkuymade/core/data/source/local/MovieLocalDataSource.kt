@@ -1,27 +1,23 @@
 package com.example.nontonkuymade.core.data.source.local
 
-import androidx.lifecycle.LiveData
 import com.example.nontonkuymade.core.data.source.local.entity.MovieEntity
 import com.example.nontonkuymade.core.data.source.local.room.MovieDao
-import com.example.nontonkuymade.core.data.source.remote.network.ApiResponse
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.withContext
-import java.lang.Exception
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class MovieLocalDataSource private constructor(
+@Singleton
+class MovieLocalDataSource @Inject constructor(
     private val movieDao: MovieDao
 ){
-    companion object {
-        private var instance: MovieLocalDataSource? = null
-
-        fun getInstance(movieDao: MovieDao): MovieLocalDataSource =
-            instance ?: synchronized(this){
-                instance ?: MovieLocalDataSource(movieDao)
-            }
-    }
+//    companion object {
+//        private var instance: MovieLocalDataSource? = null
+//
+//        fun getInstance(movieDao: MovieDao): MovieLocalDataSource =
+//            instance ?: synchronized(this){
+//                instance ?: MovieLocalDataSource(movieDao)
+//            }
+//    }
 
     fun getAllMovie(): Flow<List<MovieEntity>> = movieDao.getAllMovie()
     fun getDetailMovie(idMovie: String): Flow<MovieEntity> = movieDao.getDetailMovie(idMovie)

@@ -13,26 +13,29 @@ import com.example.nontonkuymade.core.utils.AppExecutors
 import com.example.nontonkuymade.core.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class MovieRepository private constructor(
+@Singleton
+class MovieRepository @Inject constructor(
     private val remoteDataSource: MovieRemoteDataSource,
     private val localDataSource: MovieLocalDataSource,
     private val appExecutors: AppExecutors
 ): IMovieRepository{
 
-    companion object {
-        @Volatile
-        private var instance: MovieRepository? = null
-
-        fun getInstance(
-            remoteData: MovieRemoteDataSource,
-            localData: MovieLocalDataSource,
-            appExecutors: AppExecutors
-        ): MovieRepository =
-            instance ?: synchronized(this){
-                instance ?: MovieRepository(remoteData, localData, appExecutors)
-            }
-    }
+//    companion object {
+//        @Volatile
+//        private var instance: MovieRepository? = null
+//
+//        fun getInstance(
+//            remoteData: MovieRemoteDataSource,
+//            localData: MovieLocalDataSource,
+//            appExecutors: AppExecutors
+//        ): MovieRepository =
+//            instance ?: synchronized(this){
+//                instance ?: MovieRepository(remoteData, localData, appExecutors)
+//            }
+//    }
 
     override fun getAllMovie(): Flow<Resource<List<MovieEntity>>> {
         return object : NetworkBoundResource<List<MovieEntity>, List<ResultsItemListMovie>>(appExecutors){

@@ -11,19 +11,19 @@ import com.example.nontonkuymade.core.domain.usecase.MovieInteractor
 import com.example.nontonkuymade.core.domain.usecase.MovieUseCase
 import com.example.nontonkuymade.core.utils.AppExecutors
 
-object MovieInjection {
-    private fun provideRepository(mContext: Context): IMovieRepository {
-        val database = MovieDatabase.getInstance(mContext)
-
-        val remoteDataSource = MovieRemoteDataSource.getInstance(ApiConfig.provideApiService())
-        val localDataSource = MovieLocalDataSource.getInstance(database.movieDao())
-        val appExecutors = AppExecutors()
-
-        return MovieRepository.getInstance(remoteDataSource, localDataSource, appExecutors )
-    }
-
-    fun provideMovieUseCase(mContext: Context): MovieUseCase{
-        val repository = provideRepository(mContext)
-        return MovieInteractor(repository)
-    }
-}
+//object MovieInjection {
+//    private fun provideRepository(mContext: Context): IMovieRepository {
+//        val database = MovieDatabase.getInstance(mContext)
+//
+//        val remoteDataSource = MovieRemoteDataSource.getInstance(ApiConfig.provideApiService())
+//        val localDataSource = MovieLocalDataSource.getInstance(database.movieDao())
+//        val appExecutors = AppExecutors()
+//
+//        return MovieRepository.getInstance(remoteDataSource, localDataSource, appExecutors )
+//    }
+//
+//    fun provideMovieUseCase(mContext: Context): MovieUseCase{
+//        val repository = provideRepository(mContext)
+//        return MovieInteractor(repository)
+//    }
+//}

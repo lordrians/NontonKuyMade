@@ -4,8 +4,9 @@ import androidx.lifecycle.LiveData
 import com.example.nontonkuymade.core.data.Resource
 import com.example.nontonkuymade.core.data.source.local.entity.MovieEntity
 import com.example.nontonkuymade.core.domain.repository.IMovieRepository
+import javax.inject.Inject
 
-class MovieInteractor (
+class MovieInteractor @Inject constructor(
     private val movieRepository: IMovieRepository
 ) : MovieUseCase{
 

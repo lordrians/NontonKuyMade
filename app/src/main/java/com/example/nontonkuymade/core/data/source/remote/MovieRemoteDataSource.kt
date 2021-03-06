@@ -16,19 +16,22 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.lang.Exception
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class MovieRemoteDataSource private constructor(
+@Singleton
+class MovieRemoteDataSource @Inject constructor(
     private val apiService: ApiService
 ){
-    companion object {
-        @Volatile
-        private var instance: MovieRemoteDataSource? = null
-
-        fun getInstance(service: ApiService): MovieRemoteDataSource =
-            instance ?: synchronized(this){
-                instance ?: MovieRemoteDataSource(service)
-            }
-    }
+//    companion object {
+//        @Volatile
+//        private var instance: MovieRemoteDataSource? = null
+//
+//        fun getInstance(service: ApiService): MovieRemoteDataSource =
+//            instance ?: synchronized(this){
+//                instance ?: MovieRemoteDataSource(service)
+//            }
+//    }
 
     suspend fun getAllMovie(): Flow<ApiResponse<List<ResultsItemListMovie>>> {
         return flow {

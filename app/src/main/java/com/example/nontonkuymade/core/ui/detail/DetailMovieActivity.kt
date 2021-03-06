@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -11,16 +12,24 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.nontonkuymade.BuildConfig
+import com.example.nontonkuymade.MyApplication
 import com.example.nontonkuymade.R
 import com.example.nontonkuymade.core.data.Resource
 import com.example.nontonkuymade.core.data.source.local.entity.MovieEntity
 import com.example.nontonkuymade.core.ui.MovieViewModelFactory
 import com.example.nontonkuymade.databinding.ActivityDetailMovieBinding
+import javax.inject.Inject
 
 class DetailMovieActivity : AppCompatActivity() {
 
+    @Inject
+    lateinit var factory: MovieViewModelFactory
+
+    private val viewModel: DetailMovieViewModel by viewModels {
+        factory
+    }
+
     private lateinit var binding: ActivityDetailMovieBinding
-    private lateinit var viewModel: DetailMovieViewModel
     private var idMovie: Int? = null
 
     companion object {
@@ -28,6 +37,7 @@ class DetailMovieActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        (application as MyApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         binding = ActivityDetailMovieBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -43,8 +53,8 @@ class DetailMovieActivity : AppCompatActivity() {
     }
 
     private fun loadDetail() {
-        val factory = MovieViewModelFactory.getInstance(this)
-        viewModel = ViewModelProvider(this, factory)[DetailMovieViewModel::class.java]
+//        val factory = MovieViewModelFactory.getInstance(this)
+//        viewModel = ViewModelProvider(this, factory)[DetailMovieViewModel::class.java]
 
         viewModel.getDetailMovie(idMovie.toString()).observe(this, Observer { detail ->
             when (detail) {
