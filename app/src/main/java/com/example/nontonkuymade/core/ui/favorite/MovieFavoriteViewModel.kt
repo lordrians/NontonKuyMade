@@ -4,8 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.example.nontonkuymade.core.data.source.local.entity.MovieEntity
 import com.example.nontonkuymade.core.domain.usecase.MovieUseCase
+import javax.inject.Inject
 
-class MovieFavoriteViewModel (
+class MovieFavoriteViewModel @Inject constructor (
     private val movieUseCase: MovieUseCase
 ) : ViewModel(){
     val favoriteMovie = movieUseCase.getFavMovie().asLiveData()

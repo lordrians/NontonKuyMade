@@ -8,32 +8,20 @@ import com.example.nontonkuymade.core.ui.detail.DetailMovieViewModel
 import com.example.nontonkuymade.core.ui.favorite.MovieFavoriteViewModel
 import com.example.nontonkuymade.core.ui.home.HomeViewModel
 import com.example.nontonkuymade.di.AppScope
+import java.lang.IllegalArgumentException
 import javax.inject.Inject
+import javax.inject.Provider
 
 @AppScope
 class MovieViewModelFactory @Inject constructor(
-    private val movieUseCase: MovieUseCase
-): ViewModelProvider.NewInstanceFactory() {
+    private val creators: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>
+): ViewModelProvider.Factory {
 
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return when {
-            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
-                HomeViewModel (
-                    movieUseCase
-                ) as T
-            }
-            modelClass.isAssignableFrom(DetailMovieViewModel::class.java) -> {
-                DetailMovieViewModel (
-                    movieUseCase
-                ) as T
-            }
-            modelClass.isAssignableFrom(MovieFavoriteViewModel::class.java) -> {
-                MovieFavoriteViewModel (
-                    movieUseCase
-                ) as T
-            }
-            else -> throw Throwable("Uknwon ViewModel Class : ${modelClass.name}")
-        }
+        val creator = creators[modelClass] ?: creators.entries.firstOrNull{
+            modelClass.isAssignableFrom(it.key)
+        }?.value ?: throw IllegalArgumentException("Unknown model class $modelClass")
+        return creator.get() as T
     }
 }

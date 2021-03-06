@@ -6,8 +6,9 @@ import androidx.lifecycle.asLiveData
 import com.example.nontonkuymade.core.data.Resource
 import com.example.nontonkuymade.core.data.source.local.entity.MovieEntity
 import com.example.nontonkuymade.core.domain.usecase.MovieUseCase
+import javax.inject.Inject
 
-class DetailMovieViewModel(
+class DetailMovieViewModel @Inject constructor(
     private val movieUseCase: MovieUseCase
 ): ViewModel(){
     private lateinit var detailMovie: LiveData<Resource<MovieEntity>>
