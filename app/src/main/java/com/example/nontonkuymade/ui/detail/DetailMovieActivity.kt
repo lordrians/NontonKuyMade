@@ -20,8 +20,6 @@ import java.lang.StringBuilder
 @AndroidEntryPoint
 class DetailMovieActivity : AppCompatActivity() {
 
-//    @Inject
-//    lateinit var factory: MovieViewModelFactory
 
     private val viewModel: DetailMovieViewModel by viewModels()
 
