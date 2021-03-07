@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -60,6 +61,7 @@ class DetailMovieActivity : AppCompatActivity() {
                 }
                 is Resource.Error -> {
                     showProgressBar(false)
+                    Toast.makeText(applicationContext, detail.message.toString(), Toast.LENGTH_SHORT).show()
 
                 }
             }
