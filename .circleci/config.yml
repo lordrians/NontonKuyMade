@@ -1,8 +1,15 @@
 version: 2.1
+<<<<<<< HEAD
 
 orbs:
   android: circleci/android@0.2.1
 
+=======
+ 
+orbs:
+  android: circleci/android@0.2.1
+ 
+>>>>>>> remotes/origin/circleci-project-setup
 jobs:
   build:
     executor: android/android
@@ -24,7 +31,11 @@ jobs:
       - run:
           name: Run Build
           command: ./gradlew build
+<<<<<<< HEAD
       - store_artifacts:
+=======
+      - store_artifacts: 
+>>>>>>> remotes/origin/circleci-project-setup
           path: app/build/reports
           destination: reports
       - run:
@@ -32,6 +43,10 @@ jobs:
           command: ./gradlew lint test
       - store_test_results:
           path: app/build/test-results
+<<<<<<< HEAD
       - store_artifacts:
+=======
+      - store_artifacts:  
+>>>>>>> remotes/origin/circleci-project-setup
           path: app/build/outputs/apk/debug/
           destination: artifact-file
