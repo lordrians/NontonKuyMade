@@ -7,7 +7,7 @@ import com.example.nontonkuymade.ui.favorite.FavoriteFragment
 import com.example.nontonkuymade.ui.home.HomeFragment
 
 class VpMainAdapter(
-    private val fm: FragmentActivity
+    fm: FragmentActivity
 ) : FragmentStateAdapter(fm){
     override fun getItemCount(): Int = 2
 

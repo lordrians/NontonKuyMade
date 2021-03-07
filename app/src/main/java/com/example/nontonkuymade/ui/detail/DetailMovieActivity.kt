@@ -15,6 +15,7 @@ import com.example.core.data.source.local.entity.MovieEntity
 import com.example.nontonkuymade.R
 import com.example.nontonkuymade.databinding.ActivityDetailMovieBinding
 import dagger.hilt.android.AndroidEntryPoint
+import java.lang.StringBuilder
 
 @AndroidEntryPoint
 class DetailMovieActivity : AppCompatActivity() {
@@ -59,19 +60,22 @@ class DetailMovieActivity : AppCompatActivity() {
                         fillingData(detail.data!!)
                     }
                 }
+                is Resource.Error -> {
+                    showProgressBar(false)
+
+                }
             }
         })
     }
 
-    @SuppressLint("SetTextI18n")
     private fun fillingData(data: MovieEntity) {
-        val min = " min"
         with(binding){
             tvMovdetailTitle.text = data.originalTitle
             tvMovdetailGenre.text = data.genres
             tvMovdetailDate.text = data.releaseDate
             tvMovdetailDesc.text = data.overview
-            tvMovdetailRuntime.text = data.runtime.toString() + min
+            val runtime = StringBuilder(data.runtime.toString())
+            tvMovdetailRuntime.text = runtime.append(" min")
             tvMovdetailBudget.text = data.budget.toString()
             tvMovdetailRevenue.text = data.revenue.toString()
 
