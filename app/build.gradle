@@ -11,9 +11,6 @@ apply from: '../shared_dependencies.gradle'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
-    lintOptions {
-        abortOnError false
-    }
     defaultConfig {
         applicationId "com.example.nontonkuymade"
         minSdkVersion 17
