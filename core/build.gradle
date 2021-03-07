@@ -59,4 +59,5 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines_version"
     implementation "androidx.room:room-ktx:2.2.6"
     api "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+
 }
