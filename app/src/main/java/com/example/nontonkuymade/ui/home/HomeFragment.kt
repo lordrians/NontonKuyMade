@@ -26,8 +26,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment : Fragment() , MovieAdapter.OnItemClickCallback{
 
-//    @Inject
-//    lateinit var factory: MovieViewModelFactory
 
     private val viewModelMovie: HomeViewModel by viewModels()
 
