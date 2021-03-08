@@ -12,4 +12,5 @@
     <color name="accentColor">#90cea1</color>
     <color name="bg_rate">#091b23</color>
     <color name="softGrey">#99000000</color>
+    <color name="softestGrey">#dddddd</color>
 </resources>

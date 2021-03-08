@@ -54,4 +54,6 @@ dependencies {
     // debugImplementation because LeakCanary should only run in debug builds.
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.6'
     implementation "androidx.multidex:multidex:2.0.1"
+    //shimmer
+    implementation "com.facebook.shimmer:shimmer:$shimmer_version"
 }
