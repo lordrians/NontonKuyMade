@@ -1,3 +1,3 @@
 # NontonKuyMade
 MADE Submission 1
-[![lordrians](https://app.circleci.com/pipelines/github/lordrians/NontonKuyMade.svg?style=shield)](https://app.circleci.com/pipelines/github/lordrians/NontonKuyMade)
+[![arifaizin](https://circleci.com/gh/arifaizin/MySimpleCleanArchitecture.svg?style=svg)](https://circleci.com/gh/arifaizin/MySimpleCleanArchitecture)
