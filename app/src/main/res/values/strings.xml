@@ -1,34 +1,5 @@
 <resources>
     <string name="app_name">NontonKuyMade</string>
+    <string name="title_favorite">FavoriteMovie</string>
 
-    <string name="title_movie">Outside The Wire</string>
-    <string name="date_movie">2021-01-15</string>
-    <string name="banner_movie">Banner Movie</string>
-    <string name="movie_detail_poster">Poster Movie</string>
-    <string name="genres">Drama, Fantasy, Comedy, Horror, Action</string>
-    <string name="release_date">Release Date</string>
-    <string name="release_date_content">2020-12-16</string>
-    <string name="runtime">Runtime</string>
-    <string name="runtime_content">2h32m</string>
-    <string name="budget">Budget</string>
-    <string name="budget_content">$200,000,000</string>
-    <string name="revenue">Revenue</string>
-    <string name="revenue_content">$131,400,000</string>
-    <string name="description">Description</string>
-    <string name="description_content">Wonder Woman comes into conflict with the Soviet Union during the Cold War in the 1980s and finds a formidable foe by the name of the Cheetah.</string>
-    <string name="recomendation_movie">Recomendations Movie</string>
-    <string name="season_episode">Season / Episode</string>
-    <string name="status">Status</string>
-    <string name="recomendation_tvshow">Recomendation TvShow</string>
-    <string name="season_episode_content">3 / 23</string>
-    <string name="status_content">Returning Series</string>
-    <string name="there_is_no_data_laoded">There is no data loaded</string>
-    <string name="title_favorite">Favorite</string>
-    <string name="title_botnav_home">Home</string>
-    <string-array name="TAB_TITLES_MAIN">
-        <item>Movie</item>
-        <item>TV Show</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
