@@ -10,5 +10,5 @@ class HomeViewModel @ViewModelInject constructor(
 ): ViewModel() {
 
     val movie = movieUseCase.getAllMovie().asLiveData()
-
+//ini view model
 }
